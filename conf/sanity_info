@@ -1,0 +1,3 @@
+SANITY_VERSION 1
+TMPDIR /home/yocto/bsp-scripts/arista-server/tmp
+SSTATE_DIR /home/yocto/bsp-scripts/arista-server/sstate-cache
