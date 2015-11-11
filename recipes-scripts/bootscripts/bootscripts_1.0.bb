@@ -22,6 +22,6 @@ do_install() {
 	for bootscript in ${S}/*.scr; do
 		install -m 0755 ${bootscript} ${D}/boot/
 	done
-	ln -sf /boot/boot_3.0.35-FromInternalMemory.scr ${D}/boot.scr
+	ln -sf /boot/boot_3.14-FromInternalMemory.scr ${D}/boot.scr
 }
 
