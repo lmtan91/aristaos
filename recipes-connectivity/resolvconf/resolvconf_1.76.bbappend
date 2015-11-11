@@ -1,6 +1,5 @@
 FILESEXTRAPATHS_append := "${THISDIR}/resolvconf:"
-SRC_URI += "file://fix-path-for-busybox.patch \
-	    file://99_resolvconf \
+SRC_URI += "file://99_resolvconf \
 	   "
 
 do_install_append () {
