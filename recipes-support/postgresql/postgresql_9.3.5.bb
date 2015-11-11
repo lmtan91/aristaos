@@ -6,6 +6,7 @@ PR = "${INC_PR}.0"
 
 SRC_URI += "\
     file://remove.autoconf.version.check.patch \
+    file://0001-Use-pkg-config-for-libxml2-detection.patch \
 "
 
 SRC_URI[md5sum] = "5059857c7d7e6ad83b6d55893a121b59"
