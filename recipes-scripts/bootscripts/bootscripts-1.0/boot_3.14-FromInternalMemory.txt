@@ -11,10 +11,10 @@ set bootargs console=ttymxc1,115200 root=${device} rootwait rw fixrtc
 echo == Load uImage from Internal Memory and Boot ==
 mmc dev 1
 
-set fdt_addr=0x18000000;
-set fdt_file=imx6q-qmx6.dtb;
-set loadaddr=0x12000000;
-set uimage=uImage;
+set fdt_addr 0x18000000
+set fdt_file imx6q-qmx6.dtb
+set loadaddr 0x12000000
+set uimage uImage
 
 ext2load mmc 1:1 ${fdt_addr} /boot/${fdt_file};
 ext2load mmc 1:1 ${loadaddr} boot/${uimage};
