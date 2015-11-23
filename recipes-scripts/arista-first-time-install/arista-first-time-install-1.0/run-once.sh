@@ -123,7 +123,7 @@ sleep 5
 echo Java process: $(ps | grep java)
 rm -rf /arista/arista-install
 
-# Install CarrierBoard Atmel firmware
+# Update protocolbridge configuration with buffer selector identities
 service protocolbridge stop
 python3 /python/utilities/identify_buffer_selectors.py --filename /etc/protocolbridge.conf
 
