@@ -141,3 +141,13 @@ service webapp start
 # Create an SSL key for nginx
 mkdir /etc/nginx/ssl
 openssl req -x509 -nodes -days 7000 -newkey rsa:2048 -keyout /etc/nginx/ssl/nginx.key -out /etc/nginx/ssl/nginx.crt -batch
+
+# register the instrument
+IP=$(ifconfig eth0 | awk '/inet addr/{print substr($2,6)}')
+POST_HEADER="Content-Type: application/json"
+POST_CONTENT='{"host": "'
+POST_CONTENT+="${IP}"
+POST_CONTENT+='", "username": "root", "password": "arista", "shouldResetPassword": false}'
+REGISTER_HOST="ops.practichem.com"
+REGISTER_URL="http://${REGISTER_HOST}/api/v1/register-arista"
+curl -X POST -H "${POST_HEADER}" -d "${POST_CONTENT}" $REGISTER_URL -v
