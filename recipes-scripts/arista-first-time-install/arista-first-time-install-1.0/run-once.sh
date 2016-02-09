@@ -94,6 +94,7 @@ echo "${SVN_CHANGES}${PGTUNE_CHANGES}" >> /arista/database/postgresql.conf
 service postgresql-server start
 sudo -u postgres psql -c "CREATE USER minot WITH PASSWORD 'minot';"
 sudo -u postgres psql -c "CREATE DATABASE minotdb WITH OWNER=minot;"
+sudo -u postgres psql -d minotdb -c 'CREATE EXTENSION "uuid-ossp";'
 export PGPASSWORD=minot
 psql -h localhost -U minot -d minotdb -c 'CREATE SCHEMA minot'
 
