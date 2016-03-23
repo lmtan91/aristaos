@@ -25,11 +25,14 @@ do_compile() {
 
 do_install() {
 	install -d ${D}
+	install -d ${D}${bindir}
 	install -d ${D}/etc/arista
 	install -d ${D}/etc/udev/rules.d
-	install -m ${PERMISSIONS_SCRIPT} usbmount ${D}/${bindir}
-	install -m ${PERMISSIONS_SCRIPT} check-signature-and-run ${D}/${bindir}
+	install -m ${PERMISSIONS_SCRIPT} usbmount ${D}${bindir}/
+	install -m ${PERMISSIONS_SCRIPT} check-signature-and-run ${D}${bindir}/
 	install -m ${PERMISSIONS} public-key.pub ${D}/etc/arista
 	install -m ${PERMISSIONS} usb-encryption.key ${D}/etc/arista
 	install -m ${PERMISSIONS} 90-usb-storage.rules  ${D}/etc/udev/rules.d/
 }
+
+RDEPENDS-${PN} = "bash"
