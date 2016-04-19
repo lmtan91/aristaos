@@ -157,6 +157,6 @@ openssl req -x509 -nodes -days 7000 -newkey rsa:2048 -keyout /etc/nginx/ssl/ngin
 service nginx restart
 
 # indicate completion to the user
-echo 0 > /sys/class/gpio/export > /dev/null
+echo 0 > /sys/class/gpio/export
 echo out > /sys/class/gpio/gpio0/direction
 echo 1 > /sys/class/gpio/gpio0/value
