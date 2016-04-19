@@ -79,8 +79,7 @@ mkdir -p /arista/log/dated
 ln -s /arista/log /var/log/arista
 mkdir /arista/database
 chown postgres:postgres /arista/database
-mkdir /arista/config
-ln -s /arista/config /etc/arista
+mkdir -p /etc/arista/
 mv /root-filesystem-version.txt /etc/arista/
 
 # Setup and initialize the database
@@ -124,6 +123,19 @@ sleep 5
 echo Java process: $(ps | grep java)
 rm -rf /arista/arista-install
 
+# stop the webapp
+service webapp stop
+
+# register the instrument, webapp depends on files added by registration
+IP=$(ifconfig eth0 | awk '/inet addr/{print substr($2,6)}')
+POST_HEADER="Content-Type: application/json"
+POST_CONTENT='{"host": "'
+POST_CONTENT+="${IP}"
+POST_CONTENT+='", "username": "root", "password": "arista", "shouldResetPassword": false}'
+REGISTER_HOST="ops.practichem.com"
+REGISTER_URL="http://${REGISTER_HOST}/api/v1/register-arista"
+curl -X POST -H "${POST_HEADER}" -d "${POST_CONTENT}" $REGISTER_URL -v
+
 # Update protocolbridge configuration with buffer selector identities
 service protocolbridge stop
 python3 /python/utilities/identify_buffer_selectors.py --filename /etc/protocolbridge.conf
@@ -142,13 +154,5 @@ service webapp start
 # Create an SSL key for nginx
 mkdir /etc/nginx/ssl
 openssl req -x509 -nodes -days 7000 -newkey rsa:2048 -keyout /etc/nginx/ssl/nginx.key -out /etc/nginx/ssl/nginx.crt -batch
+service nginx restart
 
-# register the instrument
-IP=$(ifconfig eth0 | awk '/inet addr/{print substr($2,6)}')
-POST_HEADER="Content-Type: application/json"
-POST_CONTENT='{"host": "'
-POST_CONTENT+="${IP}"
-POST_CONTENT+='", "username": "root", "password": "arista", "shouldResetPassword": false}'
-REGISTER_HOST="ops.practichem.com"
-REGISTER_URL="http://${REGISTER_HOST}/api/v1/register-arista"
-curl -X POST -H "${POST_HEADER}" -d "${POST_CONTENT}" $REGISTER_URL -v
