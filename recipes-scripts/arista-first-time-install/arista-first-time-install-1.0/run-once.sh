@@ -126,6 +126,9 @@ rm -rf /arista/arista-install
 # stop the webapp
 service webapp stop
 
+# Update the database with the basic (wiped) database
+/var/www/webapp/shell-utils/db-wipe.sh
+
 # register the instrument, webapp depends on files added by registration
 IP=$(ifconfig eth0 | awk '/inet addr/{print substr($2,6)}')
 POST_HEADER="Content-Type: application/json"
