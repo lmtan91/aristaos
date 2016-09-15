@@ -76,7 +76,8 @@ echo -e "/dev/sda1\t/arista\text4\tdefaults,noatime\t0\t2" >> /etc/fstab
 # Mount and initialize the new partition
 mount /dev/sda1
 mkdir -p /arista/log/dated
-ln -s /arista/log /var/log/arista
+rm -f /var/log/arista
+ln -s /arista/log/ /var/log/arista
 mkdir /arista/database
 chown postgres:postgres /arista/database
 mkdir -p /etc/arista/
