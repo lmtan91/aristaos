@@ -1,0 +1,16 @@
+[submodule "aristaos-1/bsp-scripts/sources/meta-fsl-arm-extra"]
+	path = aristaos-1/bsp-scripts/sources/meta-fsl-arm-extra
+	url = https://git.congatec.com/yocto/meta-fsl-arm-extra.git
+	branch = fido	
+[submodule "aristaos-1/bsp-scripts/sources/meta-fsl-arm"]
+	path = aristaos-1/bsp-scripts/sources/meta-fsl-arm
+	url = https://git.congatec.com/yocto/meta-fsl-arm.git
+	branch = fido	
+[submodule "aristaos-1/bsp-scripts/sources/base"]
+	path = aristaos-1/bsp-scripts/sources/base
+	url = https://git.congatec.com/yocto/base.git
+	branch = fido	
+[submodule "aristaos-1/bsp-scripts/sources/meta-openembedded"]
+	path = aristaos-1/bsp-scripts/sources/meta-openembedded
+	url = https://git.congatec.com/yocto/meta-openembedded.git
+	branch = fido
