@@ -14,3 +14,7 @@
 	path = aristaos-1/bsp-scripts/sources/meta-openembedded
 	url = https://git.congatec.com/yocto/meta-openembedded.git
 	branch = fido
+[submodule "aristaos-1/bsp-scripts/sources/poky"]
+	path = aristaos-1/bsp-scripts/sources/poky
+	url = git://git.yoctoproject.org/poky.git
+	branch = fido
