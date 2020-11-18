@@ -15,10 +15,10 @@ RUN apt-get update && \
 
 USER yoctouser
 
-COPY --chown=yoctouser:yoctouser ./bsp-scripts/ bsp-scripts
+#COPY --chown=yoctouser:yoctouser ./bsp-scripts/ bsp-scripts
 
-RUN chmod -R +x bsp-scripts/sources/poky/scripts
-RUN chmod -R +x bsp-scripts/sources/poky/bitbake/bin
+#RUN chmod -R +x bsp-scripts/sources/poky/scripts
+#RUN chmod -R +x bsp-scripts/sources/poky/bitbake/bin
 
-RUN mkdir -p bsp-scripts/downloads
-COPY --chown=yoctouser:yoctouser ./files/* bsp-scripts/downloads/
+#COPY RUN mkdir -p bsp-scripts/downloads
+#COPY --chown=yoctouser:yoctouser ./files/* bsp-scripts/downloads/
