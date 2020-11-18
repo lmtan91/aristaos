@@ -15,6 +15,7 @@
 *.xml text
 *.txt text
 *.py text
+README.md
 Dockerfile text
 
 # Declare files that will always have CRLF line endings on checkout.
