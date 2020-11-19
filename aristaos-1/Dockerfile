@@ -3,6 +3,7 @@
 #FROM crops/yocto:ubuntu-16.04-base
 #FROM crops/yocto:ubuntu-14.04-base
 FROM crops/yocto:ubuntu-14.04-base-pchem
+#FROM 839831791238.dkr.ecr.us-east-1.amazonaws.com/practichem/aristaos-1:crops-yocto-ubuntu-14.04-base-pchem
 
 USER root
 RUN apt-get update && \
