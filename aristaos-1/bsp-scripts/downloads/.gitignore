@@ -1,1 +1,10 @@
+*.bz2
 *.gz
+*.rpm
+*.bin
+*.xz
+*.tz
+*.tgz
+*.done
+git2/
+bash43*
