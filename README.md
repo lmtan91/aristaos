@@ -1,1 +1,1 @@
-# Yocto projects for Arista OS
+# Yocto project to build Arista OS
