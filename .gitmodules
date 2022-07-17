@@ -20,7 +20,7 @@
 	branch = fido
 [submodule "aristaos-1/bsp-scripts/sources/meta-oracle-java"]
 	path = aristaos-1/bsp-scripts/sources/meta-oracle-java
-	url = http://git.yoctoproject.org/git/meta-oracle-java
+	url = https://git.yoctoproject.org/git/meta-oracle-java
 [submodule "aristaos-1/bsp-scripts/sources/meta-fsl-demos"]
 	path = aristaos-1/bsp-scripts/sources/meta-fsl-demos
 	url = https://git.congatec.com/yocto/meta-fsl-demos.git
