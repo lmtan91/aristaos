@@ -1,0 +1,42 @@
+FROM crops/poky:ubuntu-20.04
+#FROM crops/yocto:ubuntu-20.04-base
+
+USER root
+
+# QMX requirements per readme
+RUN apt-get update && \
+    apt-get install -y \
+    curl gawk wget git-core diffstat unzip texinfo gcc-multilib \
+	build-essential chrpath socat cpio python python3 python3-pip python3-pexpect \
+	xz-utils debianutils iputils-ping python3-git python3-jinja2 libegl1-mesa libsdl1.2-dev \
+	pylint3 xterm libncurses-dev
+
+# Not in readme, but maybe required
+RUN apt-get install -y \
+    fakeroot rsync
+
+# Developer convenience
+RUN apt-get install -y \
+    vim
+
+# Create directory in container to hold the imx6 files
+RUN mkdir /working-imx6-test && \
+    chmod a+rw /working-imx6-test
+
+# Switch to yocto user
+#USER yoctouser
+#USER pokyuser
+
+RUN cd /working-imx6-test && \
+    mkdir ./bin && \
+    curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ./bin/repo && \
+    chmod a+x ./bin/repo
+
+#ENV PATH "$PATH:./bin"
+
+RUN cd /working-imx6-test && \
+    mkdir ./yocto && \
+	cd ./yocto && \
+	../bin/repo init -u https://git.congatec.com/yocto_nxp/imx6-manifest.git -b cgtimx6__zeus-5.4.3-1.0.0 && \
+    ../bin/repo sync    
+
