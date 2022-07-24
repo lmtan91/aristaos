@@ -2,3 +2,9 @@
 /aristaos-2/yocto/.repo
 /aristaos-2/yocto/build
 /aristaos-2/yocto/downloads
+/aristaos-2/yocto/arista-server/bitbake-cookerdaemon.log
+/aristaos-2/yocto/arista-server/bitbake.lock
+/aristaos-2/yocto/arista-server/cache
+/aristaos-2/yocto/arista-server/sstate-cache
+/aristaos-2/yocto/arista-server/tmp-glibc
+/aristaos-2/yocto/arista-server/tmp
