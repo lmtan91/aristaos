@@ -1,5 +1,3 @@
-<<<<<<< HEAD
 # Yocto project to build Arista OS
-=======
-# cgt-custom-manifest
->>>>>>> cgt-custom-manifest/update-manifest
+#
+# Builds a Docker container, then pulls repositories using the imx-manifest.xml based file.
