@@ -1,7 +1,0 @@
-tmp
-cache
-sstate-cache
-tmp-glibc
-bitbake.lock
-conf/sanity_info
-buildhistory

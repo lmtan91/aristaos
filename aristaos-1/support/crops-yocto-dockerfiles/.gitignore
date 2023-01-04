@@ -1,6 +1,0 @@
-dockerfiles/*/*/*-builder/Dockerfile
-*.pyc
-*.pyo
-*.orig
-*.rej
-*~
