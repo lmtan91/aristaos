@@ -10,17 +10,8 @@ RUN apt-get update && apt-get install -y \
   gawk wget git-core diffstat unzip texinfo \
   gcc-multilib build-essential chrpath socat cpio python python3 \
   python3-pip python3-pexpect xz-utils debianutils iputils-ping \
-  libsdl1.2-dev xterm tar locales net-tools rsync sudo vim curl
+  libsdl1.2-dev xterm tar locales net-tools rsync sudo vim curl \
   && rm -rf /var/lib/apt/lists/*
-
-
-
-RUN apt update
-RUN apt install -y gawk wget git-core diffstat unzip texinfo \
-    gcc-multilib build-essential chrpath socat cpio python python3 \
-    python3-pip python3-pexpect xz-utils debianutils iputils-ping \
-    libsdl1.2-dev xterm tar locales net-tools rsync sudo vim curl
-RUN rm -rf /var/lib/apt/lists/*
 
 # Set up locales
 RUN locale-gen en_US.UTF-8 && \
@@ -28,7 +19,7 @@ RUN locale-gen en_US.UTF-8 && \
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 
-# Yocto needs 'source' command for setting up the build environment, so replace
+# Yocto needs the 'source' command for setting up the build environment, so replace
 # the 'sh' alias to 'bash' instead of 'dash'.
 RUN rm /bin/sh && ln -s bash /bin/sh
 

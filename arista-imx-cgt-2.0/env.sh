@@ -1,1 +1,0 @@
-imx-cgt-arista-2.2/env.sh

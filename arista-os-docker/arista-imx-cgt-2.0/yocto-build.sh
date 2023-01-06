@@ -3,7 +3,7 @@
 
 # source the common variables
 
-. imx-5.15.52-2.1.0/env.sh
+. arista-imx-cgt-2.0/env.sh
 
 #
 

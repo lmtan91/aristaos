@@ -21,13 +21,21 @@
 # to run yocto-build script inside container
 #
 
-# source the common variables
+# source (aka .) the common variables
 . ./env.sh
+
+echo HOME: $HOME
+echo DOCKER_WORKDIR: $DOCKER_WORKDIR
+echo IMX_RELEASE: $IMX_RELEASE
+echo DOCKER_IMAGE_TAG: $DOCKER_IMAGE_TAG
+echo MANIFEST_GIT_REPO: ${MANIFEST_GIT_REPO}/imx-manifest
+echo Dolla_One: $1
 
 # run the docker image
 docker run -it --rm \
     --volume ${HOME}:${HOME} \
     --volume ${DOCKER_WORKDIR}:${DOCKER_WORKDIR} \
     --volume $(pwd)/${IMX_RELEASE}:${DOCKER_WORKDIR}/${IMX_RELEASE} \
+    --volume ${MANIFEST_GIT_REPO}:${DOCKER_WORKDIR}/imx-manifest \
     "${DOCKER_IMAGE_TAG}" \
     $1
