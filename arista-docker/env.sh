@@ -1,21 +1,30 @@
 #!/bin/bash
 
-# Set some defaults, to be overridden by env.sh in the version
-# subdirectories.
+# Called by docker-build.sh and docker-run.sh
 
-# Make sure DOCKER_WORKDIR is created and owned by current user.
+# Be sure DOCKER_WORKDIR exists and is owned by $USER.
+DOCKER_WORKDIR="/opt/yocto"
 
-# The Docker image from Docker Hub
-DOCKER_IMAGE_TAG="yocto-imx"
+# TODO: Make a symbolic link to the output image folder.
+
+# Docker setup
+# ------------
+# Tag the Docker image.
+# Must be lowercase.
+DOCKER_IMAGE_TAG="yocto-imx-ubuntu-18.04"
+# Choose the Dockerfile for this process
+DOCKER_FILE="Dockerfile-Ubuntu-18.04"
+
 # Where Docker is going to put files
 # TODO: Make a symbolic link to the output image folder.
 DOCKER_WORKDIR="/opt/yocto"
 
-IMX_RELEASE="arista-imx-cgt-2.2"
+# Names the release and determines the imx-manifest branch to use.
+ARISTA_IMX_RELEASE="2.0"
 
 YOCTO_DIR="${DOCKER_WORKDIR}/${IMX_RELEASE}-build"
-MANIFEST_GIT_REPO="/home/nick/arista-imx-cgt-manifest"
 
+# Bitbkae parameters
 MACHINE="cgtqmx6"
 DISTRO="fsl-imx-xwayland"
 # Image options
@@ -25,8 +34,8 @@ DISTRO="fsl-imx-xwayland"
 # core-image-minimal: A small image that only allows a device to boot
 IMAGES="core-image-minimal"
 
-REMOTE="../arista-imx-cgt-manifest"
-BRANCH="manifest-2.2"
-MANIFEST=${IMX_RELEASE}".xml"
-
-
+# Repo parameters
+# TODO: Fix this next path so it is relative
+MANIFEST_REPO="/home/nick/arista-imx-cgt-manifest"
+MANIFEST_BRANCH=${ARISTA_IMX_RELEASE}
+MANIFEST_FILENAME="manifest.xml"
