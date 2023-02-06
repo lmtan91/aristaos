@@ -1,0 +1,16 @@
+{
+    "folders": [
+        {
+            "path": "../aristaos-docker"
+        },
+        {
+            "path": "../aristaos-manifest"
+        },
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "git.ignoreLimitWarning": true
+    }
+}
