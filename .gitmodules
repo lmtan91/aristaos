@@ -1,3 +1,6 @@
 [submodule "aristaos-manifest"]
 	path = aristaos-manifest
 	url = git@github.com:practichem/aristaos-manifest.git
+[submodule "aristaos-docker"]
+	path = aristaos-docker
+	url = git@github.com:practichem/aristaos-docker.git
