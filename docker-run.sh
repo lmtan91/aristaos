@@ -32,8 +32,8 @@ echo "Docker_WORKDIR is " ${DOCKER_WORKDIR}
 docker run -it --rm \
     --volume ${HOME}:${HOME} \
     --volume ${DOCKER_WORKDIR}:${DOCKER_WORKDIR} \
-    --volume ${SCRIPT_DIR}/aristaos-manifest:${DOCKER_WORKDIR}/manifest \
-    --volume ${SCRIPT_DIR}/sstate-cache:${DOCKER_WORKDIR}/sstate-cache \
+    --volume ${HOME}/aristaos/manifest:${DOCKER_WORKDIR}/manifest \
+    --volume ${HOME}/aristaos/sstate-cache:${DOCKER_WORKDIR}/sstate-cache \
     aristaos-builder:${DOCKER_IMAGE_TAG} \
     $1
     
