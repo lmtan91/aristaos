@@ -6,7 +6,7 @@
 #
 
 # source the common variables
-. ../aristaos-manifest/env.sh
+. ${HOME}/aristaos/manifest/env.sh
 
 echo $DOCKER_IMAGE_TAG
 
@@ -15,5 +15,5 @@ docker build --tag aristaos-builder:${DOCKER_IMAGE_TAG} \
                 --build-arg USER=$(whoami) \
                 --build-arg host_uid=$(id -u) \
                 --build-arg host_gid=$(id -g) \
-                -f ${DOCKERFILE_NAME} \
+                -f ${HOME}/aristaos/docker/${DOCKERFILE_NAME} \
                 .

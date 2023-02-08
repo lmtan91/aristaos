@@ -22,14 +22,11 @@
 #
 
 # source the common variables
-. ./aristaos-manifest/env.sh
+. ${HOME}/aristaos/manifest/env.sh
 
 echo "Running Docker - aristaos-builder:${DOCKER_IMAGE_TAG}"
 echo "Home is " ${HOME}
 echo "Docker_WORKDIR is " ${DOCKER_WORKDIR}
-
-# Get the current script directory
-SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 # run the docker image
 docker run -it --rm \
