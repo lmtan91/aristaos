@@ -1,3 +1,0 @@
-[submodule "aristaos-manifest"]
-	path = manifest
-	url = git@github.com:practichem/aristaos-manifest.git
