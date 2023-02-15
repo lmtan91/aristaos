@@ -24,9 +24,9 @@
 # source the common variables
 . ${HOME}/aristaos/manifest/env.sh
 
-echo "Running Docker - aristaos-builder:${DOCKER_IMAGE_TAG}"
-echo "Home is " ${HOME}
-echo "Docker_WORKDIR is " ${DOCKER_WORKDIR}
+echo -e "\nStarting container aristaos-builder:${DOCKER_IMAGE_TAG}"
+echo "Home is" ${HOME}
+echo -e "Workdir is ${DOCKER_WORKDIR}\n"
 
 # run the docker image
 docker run -it --rm \
