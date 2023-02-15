@@ -34,6 +34,7 @@ docker run -it --rm \
     --volume ${DOCKER_WORKDIR}:${DOCKER_WORKDIR} \
     --volume ${HOME}/${MANIFEST_REPO}:${DOCKER_WORKDIR}/manifest \
     --volume ${HOME}/aristaos/sstate-cache:${DOCKER_WORKDIR}/sstate-cache \
+    --volume ${HOME}/aristaos/builds:${DOCKER_WORKDIR}/builds \
     aristaos-builder:${DOCKER_IMAGE_TAG} \
     $1
     
