@@ -4,9 +4,7 @@
 # source the common variables
 
 
-if [ -f /.dockerenv ]; then
-    echo "I'm inside matrix ;(";
-else
+if ! [ -f /.dockerenv ]; then
     echo -e "This script must be run inside a container\n";
     exit 1
 fi
