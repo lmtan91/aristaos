@@ -26,15 +26,15 @@
 
 echo -e "\nStarting container aristaos-builder:${DOCKER_IMAGE_TAG}"
 echo "Home is" ${HOME}
-echo -e "Workdir is ${DOCKER_WORKDIR}\n"
+echo -e "Workdir is" ${DOCKER_WORKDIR}
+echo -e "Build directory is" ${BUILD_DIR} "\n"
 
 # run the docker image
 docker run -it --rm \
     --volume ${HOME}:${HOME} \
     --volume ${DOCKER_WORKDIR}:${DOCKER_WORKDIR} \
     --volume ${HOME}/${MANIFEST_REPO}:${DOCKER_WORKDIR}/manifest \
-    --volume ${HOME}/aristaos/sstate-cache:${DOCKER_WORKDIR}/sstate-cache \
-    --volume ${HOME}/aristaos/builds:${DOCKER_WORKDIR}/builds \
+    --volume ${DOCKER_WORKDIR}:${DOCKER_WORKDIR}/builds \
     aristaos-builder:${DOCKER_IMAGE_TAG} \
     $1
     
