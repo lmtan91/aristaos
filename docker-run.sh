@@ -21,20 +21,35 @@
 # to run yocto-build script inside container
 #
 
-# source the common variables
-. ${HOME}/aristaos/manifest/env.sh
+# source the common environment variables
+. ${HOME}/cgt-custom-manifest/env.sh
 
-echo -e "\nStarting container aristaos-builder:${DOCKER_IMAGE_TAG}"
-echo "Home is" ${HOME}
+# Pass some environment variables to the container
+
+echo -e "\nStarting container from image: aristaos-builder:${DOCKER_IMAGE_TAG}"
+echo -e "Home is" ${HOME}
+echo -e "Manifest repo is" ${MANIFEST_REPO}
+echo -e "Build directory is" ${BUILD_DIR}
+echo -e "Target machine type is" ${MACHINE}
+echo -e "Target distro is" ${DISTRO}
 echo -e "Workdir is" ${DOCKER_WORKDIR}
-echo -e "Build directory is" ${BUILD_DIR} "\n"
+echo -e "Target Yocto image is" ${IMAGES} "\n"
+
 
 # run the docker image
 docker run -it --rm \
     --volume ${HOME}:${HOME} \
     --volume ${DOCKER_WORKDIR}:${DOCKER_WORKDIR} \
-    --volume ${HOME}/${MANIFEST_REPO}:${DOCKER_WORKDIR}/manifest \
-    --volume ${DOCKER_WORKDIR}:${DOCKER_WORKDIR}/builds \
+    --volume ${HOME}/${MANIFEST_REPO}:${DOCKER_WORKDIR}/${MANIFEST_REPO} \
+    --volume ${HOME}/aristaos:${DOCKER_WORKDIR}/aristaos \
+    --env MACHINE \
+    --env MANIFEST_REPO \
+    --env DOCKER_WORKDIR \
+    --env BUILD_DIR \
+    --env DISTRO \
+    --env IMAGES \
     aristaos-builder:${DOCKER_IMAGE_TAG} \
     $1
     
+
+

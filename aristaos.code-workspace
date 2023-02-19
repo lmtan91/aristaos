@@ -5,6 +5,12 @@
         },
         {
             "path": "../aristaos-manifest"
+        },
+        {
+            "path": "../cgt-custom-manifest"
+        },
+        {
+            "path": "../../../opt/yocto"
         }
     ],
     "settings": {
