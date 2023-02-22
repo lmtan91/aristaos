@@ -1,12 +1,9 @@
 #!/bin/bash
 
-# Shared variables
-
-# TODO: Make a symbolic link to the output image folder.
 
 # Docker setup
 # ------------
-# Tag the Docker image.
+# Tag the Dock er image.
 # Must be lowercase.
 DOCKER_IMAGE_TAG="yocto-imx-ubuntu-18.04"
 
@@ -17,7 +14,7 @@ DOCKER_FILE="Dockerfile-Ubuntu-18.04"
 DOCKER_WORKDIR="/opt/yocto"
 
 # Names the release and determines the imx-manifest branch to use.
-ARISTA_IMX_RELEASE="cgtimx6"
+ARISTA_IMX_RELEASE="cgtimx6_zeus"
 
 YOCTO_DIR="${DOCKER_WORKDIR}/${ARISTA_IMX_RELEASE}-build"
 

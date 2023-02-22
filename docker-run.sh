@@ -22,7 +22,7 @@
 #
 
 # source the common environment variables
-. ${HOME}/cgt-custom-manifest/env.sh
+. ./env.sh
 
 # Pass some environment variables to the container
 
@@ -40,16 +40,6 @@ echo -e "Target Yocto image is" ${IMAGES} "\n"
 docker run -it --rm \
     --volume ${HOME}:${HOME} \
     --volume ${DOCKER_WORKDIR}:${DOCKER_WORKDIR} \
-    --volume ${HOME}/${MANIFEST_REPO}:${DOCKER_WORKDIR}/${MANIFEST_REPO} \
-    --volume ${HOME}/aristaos:${DOCKER_WORKDIR}/aristaos \
-    --env MACHINE \
-    --env MANIFEST_REPO \
-    --env DOCKER_WORKDIR \
-    --env BUILD_DIR \
-    --env DISTRO \
-    --env IMAGES \
-    aristaos-builder:${DOCKER_IMAGE_TAG} \
+    --volume $(pwd)/${ARISTA_IMX_RELEASE}:${DOCKER_WORKDIR}/${ARISTA_IMX_RELEASE} \
+    "${DOCKER_IMAGE_TAG}" \
     $1
-    
-
-
