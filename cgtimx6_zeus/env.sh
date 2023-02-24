@@ -26,8 +26,8 @@ DISTRO="fsl-imx-xwayland"
 #                         Freescale's multimedia packages (VPU and GPU) when available,
 #                         and test and benchmark applications.
 # core-image-minimal: A small image that only allows a device to boot
-IMAGES="core-image-minimal"
+IMAGES="aristaos-image"
 
-REMOTE="https://git.congatec.com/yocto_nxp/imx6-manifest.git"
-BRANCH="cgtimx6__zeus-5.4.3-1.0.0"
-MANIFEST="default.xml"
+REMOTE="https://github.com/practichem/aristaos-manifest.git"
+BRANCH="develop"
+MANIFEST="manifest_zeus.xml"
