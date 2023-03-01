@@ -33,6 +33,7 @@ if [ -d ../sources/meta-java ]; then
     echo meta-java directory found
     echo "BBLAYERS += \"\${BSPDIR}/sources/meta-java\"" >> ./conf/bblayers.conf
 fi
+echo "BBLAYERS += \"\${BSPDIR}/sources/meta-openembedded/meta-webserver\"" >> ./conf/bblayers.conf
 
 echo "# Possible provider: cacao-initial-native and jamvm-initial-native" >> ./conf/local.conf
 echo "PREFERRED_PROVIDER_virtual/java-initial-native = \"cacao-initial-native\"" >> ./conf/local.conf
