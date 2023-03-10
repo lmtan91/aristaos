@@ -35,11 +35,10 @@ echo -e "Target distro is" ${DISTRO}
 echo -e "Workdir is" ${DOCKER_WORKDIR}
 echo -e "Target Yocto image is" ${IMAGES} "\n"
 
-
 # run the docker image
 docker run -it --rm \
     --volume ${HOME}:${HOME} \
     --volume ${DOCKER_WORKDIR}:${DOCKER_WORKDIR} \
     --volume $(pwd)/${ARISTA_IMX_RELEASE}:${DOCKER_WORKDIR}/${ARISTA_IMX_RELEASE} \
     "${DOCKER_IMAGE_TAG}" \
-    $1
+    $1 $2

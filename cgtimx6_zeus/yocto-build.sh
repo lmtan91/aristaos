@@ -49,5 +49,8 @@ echo "CORE_IMAGE_EXTRA_INSTALL += \"packagegroup-core-ssh-openssh\"" >> ./conf/l
 
 # Build
 
+if [ "$1" = "-dev" ]; then
+	export IMAGES="${IMAGES}-dev"
+fi
 bitbake ${IMAGES}
 
