@@ -62,7 +62,7 @@ Build the yocto imx-image in a docker container
 -----------------------------------------------
 
 ```{.sh}
-  $ ./docker-run.sh cgtimx6_zeus/yocto-build.sh
+  $ ./docker-run.sh cgtimx6_zeus_imx-5.4.70-2.3.9/yocto-build.sh
 ```
 
 or just go to the docker container prompt (and run the build script from there):
