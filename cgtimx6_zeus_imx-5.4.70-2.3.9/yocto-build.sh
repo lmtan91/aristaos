@@ -51,12 +51,13 @@ echo "CORE_IMAGE_EXTRA_INSTALL += \"packagegroup-core-ssh-openssh\"" >> ./conf/l
 
 if [ "$1" = "-dev" ]; then
 	export IMAGES="${IMAGES}-dev"
-else
-	sed -i '/debug-tweaks/d' ./conf/local.conf
+#else
+#	sed -i '/debug-tweaks/d' ./conf/local.conf
 fi
 
 echo "INHERIT += \"extrausers\"" >> ./conf/local.conf
 echo "EXTRA_USERS_PARAMS = \"usermod -P arista root;\"" >> ./conf/local.conf
 
+bitbake pseudo
 bitbake ${IMAGES}
 
