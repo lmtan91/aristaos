@@ -68,6 +68,8 @@ echo "IMAGE_FSTYPES = \" ext4 ext4.gz wic.bmap wic.gz\"" >> ./conf/local.conf
 
 echo "PREFERRED_PROVIDER_u-boot-fw-utils = \"libubootenv\"" >> ./conf/local.conf
 
+echo "IMAGE_INSTALL_append = \" dosfstools\"" >> ./conf/local.conf
+
 # Build
 
 if [ "$1" = "-dev" ]; then
@@ -79,5 +81,6 @@ fi
 echo "INHERIT += \"extrausers\"" >> ./conf/local.conf
 echo "EXTRA_USERS_PARAMS = \"usermod -P arista root;\"" >> ./conf/local.conf
 
+bitbake virtual/bootloader
 bitbake ${IMAGES}
 
