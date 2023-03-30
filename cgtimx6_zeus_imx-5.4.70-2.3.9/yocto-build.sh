@@ -7,6 +7,7 @@
 apply_patch() {
 	for file in ${DOCKER_WORKDIR}/${ARISTA_IMX_RELEASE}/patches/*
 	do
+		echo "Checking $file..."
 		patch -p0 -N --dry-run --silent < $file 2>/dev/null
 		if [ $? -eq 0 ];
 		then
@@ -69,6 +70,8 @@ echo "IMAGE_FSTYPES = \" ext4 ext4.gz wic.bmap wic.gz\"" >> ./conf/local.conf
 echo "PREFERRED_PROVIDER_u-boot-fw-utils = \"libubootenv\"" >> ./conf/local.conf
 
 echo "IMAGE_INSTALL_append = \" dosfstools\"" >> ./conf/local.conf
+# disable volatile log in tmpfs to enable persistent journal log
+echo "VOLATILE_LOG_DIR = \"no\"" >> ./conf/local.conf
 
 # Build
 
@@ -81,6 +84,7 @@ fi
 echo "INHERIT += \"extrausers\"" >> ./conf/local.conf
 echo "EXTRA_USERS_PARAMS = \"usermod -P arista root;\"" >> ./conf/local.conf
 
-bitbake virtual/bootloader
+bitbake ${IMAGES} -c cleansstate
 bitbake ${IMAGES}
-
+bitbake update-image -c cleansstate
+bitbake update-image 
