@@ -41,6 +41,8 @@ apply_patch ;
 
 EULA=1 MACHINE="${MACHINE}" DISTRO="${DISTRO}" source imx-setup-release.sh -b build_${DISTRO}
 
+sed -i '/meta-nxp-demo-experience/d' ./conf/bblayers.conf
+
 # add meta-aristaos layer
 if [ -d ../sources/meta-aristaos ]; then
     echo meta-aristaos directory found
@@ -84,7 +86,6 @@ fi
 echo "INHERIT += \"extrausers\"" >> ./conf/local.conf
 echo "EXTRA_USERS_PARAMS = \"usermod -P arista root;\"" >> ./conf/local.conf
 
-bitbake ${IMAGES} -c cleansstate
 bitbake ${IMAGES}
-bitbake update-image -c cleansstate
 bitbake update-image 
+bitbake protocolbridge-packages
