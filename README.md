@@ -42,11 +42,25 @@ Build aristaos with docker
 
 ```
 
+Clone AristaOS source code
+-------------
+
+```{.sh}
+git clone git@github.com:practichem/aristaos.git -b develop_zeus
+```
+
 Set variables
 -------------
 
 Use `env.sh` to set variables for your build setup. Make sure you have 
 created a working directory, owned by current user, on a larger partition.
+
+Assuming the working directory is $HOME/yocto
+
+```{.sh}
+mkdir -p $HOME/yocto
+chown -R $USER:USER $HOME/yocto
+```
 
 Create a yocto-ready docker image
 ---------------------------------
