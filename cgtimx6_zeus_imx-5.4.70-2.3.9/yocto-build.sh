@@ -85,7 +85,8 @@ fi
 
 echo "INHERIT += \"extrausers\"" >> ./conf/local.conf
 echo "EXTRA_USERS_PARAMS = \"usermod -P arista root;\"" >> ./conf/local.conf
+echo "IMAGE_BOOT_FILES += \"uImage imx6dl-qmx6.dtb imx6q-qmx6.dtb\"" >> ./conf/local.conf
+echo "WKS_FILES = \"aristaos-image.wks.in\"" >> ./conf/local.conf
 
 bitbake ${IMAGES}
 bitbake update-image 
-bitbake protocolbridge-packages
