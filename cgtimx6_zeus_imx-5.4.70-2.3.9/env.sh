@@ -11,7 +11,7 @@ DOCKER_IMAGE_TAG="yocto-imx-ubuntu-18.04"
 DOCKER_FILE="Dockerfile-Ubuntu-18.04"
 
 # Where Docker is going to put files
-DOCKER_WORKDIR="/opt/yocto"
+DOCKER_WORKDIR="$HOME/yocto"
 
 # Names the release and determines the imx-manifest branch to use.
 ARISTA_IMX_RELEASE="cgtimx6_zeus_imx-5.4.70-2.3.9"
