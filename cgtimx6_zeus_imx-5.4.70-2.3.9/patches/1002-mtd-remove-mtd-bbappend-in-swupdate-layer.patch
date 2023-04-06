@@ -1,6 +1,5 @@
-diff -rupN a/sources/meta-swupdate/recipes-devtools/mtd/mtd-utils_%.bbappend b/sources/meta-swupdate/recipes-devtools/mtd/mtd-utils_%.bbappend
---- a/sources/meta-swupdate/recipes-devtools/mtd/mtd-utils_%.bbappend	2023-03-20 23:51:11.159754981 +0700
-+++ b/sources/meta-swupdate/recipes-devtools/mtd/mtd-utils_%.bbappend	1970-01-01 08:00:00.000000000 +0800
+--- sources/meta-swupdate/recipes-devtools/mtd/mtd-utils_%.bbappend.orig	2023-03-20 23:51:11.159754981 +0700
++++ sources/meta-swupdate/recipes-devtools/mtd/mtd-utils_%.bbappend	1970-01-01 08:00:00.000000000 +0800
 @@ -1,29 +0,0 @@
 -FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 -

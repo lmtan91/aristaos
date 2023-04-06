@@ -1,6 +1,5 @@
-diff -rupN a/sources/meta-swupdate/recipes-bsp/libubootenv/libubootenv_0.3.1.bb b/sources/meta-swupdate/recipes-bsp/libubootenv/libubootenv_0.3.1.bb
---- a/sources/meta-swupdate/recipes-bsp/libubootenv/libubootenv_0.3.1.bb	2023-03-20 23:53:50.672617839 +0700
-+++ b/sources/meta-swupdate/recipes-bsp/libubootenv/libubootenv_0.3.1.bb	2023-03-20 23:52:25.774123457 +0700
+--- sources/meta-swupdate/recipes-bsp/libubootenv/libubootenv_0.3.1.bb.orig	2023-03-20 23:53:50.672617839 +0700
++++ sources/meta-swupdate/recipes-bsp/libubootenv/libubootenv_0.3.1.bb	2023-03-20 23:52:25.774123457 +0700
 @@ -25,6 +25,6 @@ RPROVIDES_${PN}-bin += "u-boot-fw-utils"
  
  PACKAGE_ARCH = "${MACHINE_ARCH}"
