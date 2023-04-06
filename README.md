@@ -59,7 +59,7 @@ Assuming the working directory is $HOME/yocto
 
 ```{.sh}
 mkdir -p $HOME/yocto
-chown -R $USER:USER $HOME/yocto
+chown -R $USER:$USER $HOME/yocto
 ```
 
 Create a yocto-ready docker image
