@@ -75,6 +75,12 @@ echo "IMAGE_INSTALL_append = \" dosfstools\"" >> ./conf/local.conf
 # disable volatile log in tmpfs to enable persistent journal log
 echo "VOLATILE_LOG_DIR = \"no\"" >> ./conf/local.conf
 
+# Add build information
+echo "INHERIT += \"image-buildinfo\"" >> ./conf/local.conf
+echo "IMAGE_BUILDINFO_VARS_append = \" DATETIME DISTRO_NAME IMAGE_BASENAME MACHINE TUNE_PKGARCH\"" >> ./conf/local.conf
+echo "IMAGE_BUILDINFO_VARS_append = \" MACHINE_FEATURES DISTRO_FEATURES COMMON_FEATURES IMAGE_FEATURES\"" >> ./conf/local.conf
+echo "IMAGE_BUILDINFO_VARS_append = \" TUNE_FEATURES TARGET_FPU\"" >> ./conf/local.conf
+
 # Build
 
 if [ "$1" = "-dev" ]; then
